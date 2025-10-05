@@ -1,24 +1,16 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path'
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  root: path.resolve(__dirname, 'frontend'),
-  publicDir: path.resolve(__dirname, 'frontend/public'),
   plugins: [react()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'frontend/src'),
-    },
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
   },
   server: {
     port: 3000,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5000', // Updated backend port
-        changeOrigin: true,
-      }
-    }
+  },
+  preview: {
+    port: 3000,
   }
 })

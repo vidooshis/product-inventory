@@ -21,7 +21,10 @@
 
 ### backend and frontend conneted- fully working website
 ![Git Log](../screenshots/git_commit_4.png)
-- commit after connecting both of them and checking if they are working correctly
+- commit after connecting both of them and checking if they are working,
+
+### Vercel backend issue, so commit again
+![Git Log](../screenshots/git_commit_5.png)
 ### API endpoints
 
 **Description:**

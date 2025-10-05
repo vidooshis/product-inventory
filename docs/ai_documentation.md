@@ -44,3 +44,25 @@
 ![AI doc](../screenshots/c5.png)
 - When i was trying to connect the backend and frontend, i had some issue with naming port in different files and couldn't understand it at that time. so CLI helped me put it together and made it easy to identify my mistake without spending so much time
 
+
+### Signup problem
+![AI doc](../screenshots/sl1.png)
+![AI doc](../screenshots/sl2.png)
+![AI doc](../screenshots/sl3.png)
+
+
+### Vercel compatibility issues in files with CORS 
+![AI doc](../screenshots/ai4.png)
+![AI doc](../screenshots/ai5.png)
+![AI doc](../screenshots/ai6.png)
+
+
+### Vercel problem with CORS again which couldn't be resolved multiple times
+![AI doc](../screenshots/cors1.png)
+![AI doc](../screenshots/cors2.png)
+![AI doc](../screenshots/cors3.png)
+![AI doc](../screenshots/cors4.png)
+![AI doc](../screenshots/cors5.png)
+
+### Background image could'nt deploy on vercel frontend
+![AI doc](../screenshots/ai3.png)
