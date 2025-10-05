@@ -10,7 +10,7 @@ function Hero() {
     <section
       className="hero"
       style={{
-        backgroundImage: "url('/illuminated-light_1048944-11070769.jpg')",
+        backgroundImage: "/illuminated-light_1048944-11070769.jpg",
       }}
     >
       <div className="hero-overlay">
