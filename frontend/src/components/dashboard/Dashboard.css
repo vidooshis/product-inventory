@@ -11,13 +11,33 @@
   align-items: center;
 }
 
-.add-btn {
+.add-btn, .logout-btn {
   background: #2563eb;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
   border-radius: 6px;
   cursor: pointer;
+  margin-left: 1rem;
+}
+
+.logout-btn {
+  background: #dc2626;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filters input,
+.filters select {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  flex: 1;
 }
 
 .product-grid {
@@ -45,11 +65,19 @@
   align-items: center;
 }
 
-.delete-btn {
+.delete-btn, .edit-btn {
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.delete-btn {
   color: red;
+}
+
+.edit-btn {
+  color: #2563eb;
 }
 
 .category {
@@ -129,7 +157,7 @@
   max-width: 90%;
 }
 
-.modal input, .modal textarea {
+.modal input, .modal textarea, .modal select {
   width: 100%;
   margin: 0.5rem 0;
   padding: 0.6rem;
@@ -163,4 +191,72 @@
 .submit-btn {
   background: #2563eb;
   color: white;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  background: white;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.active-page {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+.card-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.discounted-price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 14px;
+}
+
+.discount {
+  font-size: 14px;
+  color: green;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.status.in-stock {
+  color: green;
+}
+
+.status.out-stock {
+  color: red;
 }
