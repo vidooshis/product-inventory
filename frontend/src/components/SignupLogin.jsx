@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import API from "../api/config"; // Import the configured API instance
 import "../App.css";
 
 function SignupLogin({ onLogin }) {
@@ -11,30 +11,28 @@ function SignupLogin({ onLogin }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async (e) => {
-  e.preventDefault();
-  if (!loginUsername || !loginPassword) {
-    setMessage("Please enter both username and password");
-    return;
-  }
+    e.preventDefault();
+    if (!loginUsername || !loginPassword) {
+      setMessage("Please enter both username and password");
+      return;
+    }
 
-  setIsLoading(true);
-  setMessage("");
+    setIsLoading(true);
+    setMessage("");
 
-  try {
-    await onLogin(loginUsername, loginPassword);
-    // Clear form after successful login
-    setLoginUsername("");
-    setLoginPassword("");
-  } catch (error) {
-    // ✅ Show backend error OR default fallback
-    setMessage(
-      error.response?.data?.message || "Invalid username or password"
-    );
-  } finally {
-    setIsLoading(false);
-  }
-};
-
+    try {
+      await onLogin(loginUsername, loginPassword);
+      // Clear form after successful login
+      setLoginUsername("");
+      setLoginPassword("");
+    } catch (error) {
+      setMessage(
+        error.response?.data?.message || "Invalid username or password"
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -47,7 +45,8 @@ function SignupLogin({ onLogin }) {
     setMessage("");
 
     try {
-      const response = await axios.post("/api/auth/signup", {
+      // ✅ FIXED: Use API instance instead of direct axios
+      const response = await API.post("/api/auth/signup", {
         username: signupUsername,
         password: signupPassword
       });
