@@ -9,6 +9,15 @@
 - Initialised Git Repository
 - Added fully working backend folder and database connection
 
+### commit with CLI, already have shared in ai_documentation
+
+### initial frontend commit
+![Git Log](../screenshots/git_commit_2.png)
+- just the basic frontend with no styling, just the components 
+
+### final landing page done
+![Git Log](../screenshots/git_commit_3.png)
+- commit after whole landing page was done with all the styling complete.
 
 ### API endpoints
 

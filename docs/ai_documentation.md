@@ -28,3 +28,13 @@
 **Desciption:**
 - I had opened vite-project twice in different directories and both of them were conflicting with each other, gemini CLI helped in merging them both as i deleted one folder. It edited all the files containing 'client' folder configurations and changed them for frontend.
 - It also changed tailwind config file along with package json files in the root folder.
+
+## Conflict of Tailwind internal with system compatibilty
+![AI doc](../screenshots/mc1.png)
+![AI doc](../screenshots/mc2.png)
+![alt text](../screenshots/mc3.png)
+
+  - I had some internal issue which was hindering with tailwind. even though i had manually created the files all together, i still couldn't resolve this erorr. Even at the end, CLI couldn't resolve it so i had to remove taiwind files altogether and then i did it 'old way' using css creating classes for every component and adding it to external css file.
+
+
+
