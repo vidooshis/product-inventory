@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-// Use environment variable for base URL
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://product-inventory-xm1e.onrender.com';
+// Hardcode the backend URL for now
+const API_BASE_URL = 'https://product-inventory-xm1e.onrender.com';
 
-console.log('API Base URL:', API_BASE_URL); // Add this for debugging
+console.log('Using backend:', API_BASE_URL);
 
 const API = axios.create({
   baseURL: API_BASE_URL,
