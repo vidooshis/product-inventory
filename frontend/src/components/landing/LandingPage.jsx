@@ -3,10 +3,9 @@ import Hero from "../Hero";
 import SignupLogin from "../SignupLogin";
 import Features from "../Features";
 import Testimonials from "../Testimonials";
-import API from "../api/config"; // Import the configured API instance
+import API from "../../api/config"; // ✅ FIXED: Changed from "../api/config" to "../../api/config"
 import Header from "../Header";
 import { useNavigate } from "react-router-dom";
-
 function LandingPage() {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");

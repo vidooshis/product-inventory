@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import API from "../../api/config"; // ✅ Use API instance instead of direct axios
 import { useNavigate } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import AddProductForm from "./AddProductForm";
@@ -36,24 +36,26 @@ const Dashboard = () => {
     }
   }, [token]);
 
-  // ✅ Fetch products
+  // ✅ Fetch products - FIXED: Use API instance
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("/api/products", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await API.get("/api/products");
         setProducts(res.data);
       } catch (err) {
         console.error("Error fetching products:", err);
         setError("Unable to load products. Please try again later.");
+        if (err.response?.status === 401) {
+          localStorage.removeItem("token");
+          navigate("/");
+        }
       } finally {
         setLoading(false);
       }
     };
 
     fetchProducts();
-  }, [token]);
+  }, [token, navigate]);
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
@@ -69,47 +71,47 @@ const Dashboard = () => {
     );
   });
 
-  // ✅ Add product
+  // ✅ Add product - FIXED: Use API instance
   const addProduct = async (newProduct) => {
     try {
-      const res = await axios.post("/api/products", newProduct, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await API.post("/api/products", newProduct);
       setProducts([...products, res.data]);
       setShowForm(false);
     } catch (err) {
       setError("Error adding product");
+      if (err.response?.status === 401) {
+        localStorage.removeItem("token");
+        navigate("/");
+      }
     }
   };
 
-  // ✅ Update product
+  // ✅ Update product - FIXED: Use API instance
   const updateProduct = async (updatedProduct) => {
     try {
-      const res = await axios.put(`/api/products/${updatedProduct._id}`, updatedProduct, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await API.put(`/api/products/${updatedProduct._id}`, updatedProduct);
       setProducts(products.map(p => p._id === updatedProduct._id ? res.data : p));
       setEditingProduct(null);
     } catch (err) {
       setError("Error updating product");
+      if (err.response?.status === 401) {
+        localStorage.removeItem("token");
+        navigate("/");
+      }
     }
   };
 
-  // ✅ Delete product
+  // ✅ Delete product - FIXED: Use API instance
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`/api/products/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await API.delete(`/api/products/${id}`);
       setProducts(products.filter((p) => p._id !== id));
     } catch (err) {
       setError("Failed to delete product");
+      if (err.response?.status === 401) {
+        localStorage.removeItem("token");
+        navigate("/");
+      }
     }
   };
 
@@ -133,11 +135,12 @@ const Dashboard = () => {
       </div>
     );
   }
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentProducts = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
 
-    const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
@@ -203,32 +206,32 @@ const Dashboard = () => {
       )}
 
       {totalPages > 1 && (
-  <div className="pagination">
-    <button
+        <div className="pagination">
+          <button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(currentPage - 1)}
-            >
+          >
             Prev
-            </button>
+          </button>
 
-            {[...Array(totalPages)].map((_, i) => (
+          {[...Array(totalPages)].map((_, i) => (
             <button
-                key={i}
-                className={currentPage === i + 1 ? "active-page" : ""}
-                onClick={() => setCurrentPage(i + 1)}
+              key={i}
+              className={currentPage === i + 1 ? "active-page" : ""}
+              onClick={() => setCurrentPage(i + 1)}
             >
-                {i + 1}
+              {i + 1}
             </button>
-            ))}
+          ))}
 
-            <button
+          <button
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage(currentPage + 1)}
-            >
+          >
             Next
-            </button>
+          </button>
         </div>
-        )}
+      )}
     </div>
   );
 };
