@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-// Hardcode the backend URL for now
+// Hardcode for now to avoid env issues
 const API_BASE_URL = 'https://product-inventory-xm1e.onrender.com';
-
-console.log('Using backend:', API_BASE_URL);
 
 const API = axios.create({
   baseURL: API_BASE_URL,
