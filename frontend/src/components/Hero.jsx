@@ -1,6 +1,5 @@
 import React from "react";
 import "../App.css";
-import heroBackground from "../assets/illuminated-light_1048944-11070769.jpg";
 
 function Hero() {
   const handleScroll = () => {
@@ -11,7 +10,7 @@ function Hero() {
     <section
       className="hero"
       style={{
-        backgroundImage: `url(${heroBackground})`,
+        backgroundImage: "url('/illuminated-light_1048944-11070769.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
