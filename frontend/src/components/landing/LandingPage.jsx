@@ -3,12 +3,9 @@ import Hero from "../Hero";
 import SignupLogin from "../SignupLogin";
 import Features from "../Features";
 import Testimonials from "../Testimonials";
-import axios from "axios";
+import API from "../api/config"; // Import the configured API instance
 import Header from "../Header";
 import { useNavigate } from "react-router-dom";
-
-// Set base URL for Axios
-axios.defaults.baseURL = "http://localhost:4000";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -17,7 +14,8 @@ function LandingPage() {
   const handleLogin = async (username, password) => {
     try {
       setMessage("");
-      const response = await axios.post("/api/auth/login", { 
+      // ✅ FIXED: Use API instance instead of direct axios
+      const response = await API.post("/api/auth/login", { 
         username, 
         password 
       });
@@ -34,6 +32,7 @@ function LandingPage() {
     } catch (error) {
       console.error("Login failed", error);
       setMessage(error.response?.data?.message || "Login failed. Please check your credentials.");
+      throw error; // Important: re-throw so SignupLogin can catch it
     }
   };
 
