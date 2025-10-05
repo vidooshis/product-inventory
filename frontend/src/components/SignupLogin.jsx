@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 
-function SignupLogin() {
+function SignupLogin({ onLogin }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onLogin(username, password);
+  };
+
   return (
     <section className="signup-login-section">
       <div className="container">
@@ -13,11 +21,21 @@ function SignupLogin() {
           <div className="card login-card">
             <h3>Welcome Back</h3>
             <p>Sign in to your existing account</p>
-            <form>
+            <form onSubmit={handleSubmit}>
               <label>Username</label>
-              <input type="text" placeholder="Enter your username" />
+              <input
+                type="text"
+                placeholder="Enter your username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
               <label>Password</label>
-              <input type="password" placeholder="Enter your password" />
+              <input
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
               <button type="submit" className="btn btn-primary btn-login">Sign In</button>
             </form>
           </div>

@@ -1,24 +1,28 @@
-// src/App.js
 import React from "react";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./components/landing/LandingPage";
+import Dashboard from "./components/dashboard/Dashboard";
+
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import SignupLogin from "./components/SignupLogin";
-import Features from "./components/Features";
-import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      {/* <ProductGrid /> */}
-      <Features />
-      <SignupLogin />
-      <Testimonials />
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <LandingPage />
+            </>
+          }
+        />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
       <Footer />
-    </div>
+    </Router>
   );
 }
 

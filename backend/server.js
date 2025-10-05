@@ -9,8 +9,17 @@ const productRoutes = require('./routes/products');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000", // your Vite frontend URL
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  })
+);
 app.use(express.json());
+
+
 
 app.get('/', (req, res) => {
   res.json({ 
