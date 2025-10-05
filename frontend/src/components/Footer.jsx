@@ -1,6 +1,7 @@
 // src/components/Footer.js
 import React from "react";
 import "../App.css";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -14,9 +15,9 @@ function Footer() {
           </div>
           <div className="socials">
             {/* place social icons if you want */}
-            <a href="#!">Twitter</a>
-            <a href="#!">Facebook</a>
-            <a href="#!">Instagram</a>
+            <a href="#!"><FaTwitter /> Twitter</a>
+            <a href="#!"><FaFacebook /> Facebook</a>
+            <a href="#!"><FaInstagram /> Instagram</a>
           </div>
         </div>
         <p className="copyright">

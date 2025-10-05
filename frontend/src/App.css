@@ -31,11 +31,13 @@ body, html, .App {
   background-color: #fff;
   padding: 20px 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  
 }
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: 0.5rem;
 }
 .nav-links a {
   margin: 0 15px;
@@ -45,48 +47,54 @@ body, html, .App {
 
 /* Hero */
 .hero {
-  padding: 80px 0;
-  background-color: #f7f7f7;
-}
-.hero-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.hero-text h1 {
-  font-size: 2.5rem;
-}
-.hero-image img {
-  max-width: 100%;
-  height: auto;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full screen height */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Product grid */
-.product-grid-section {
-  padding: 60px 0;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-.product-card {
-  background: white;
-  padding: 20px;
-  border: 1px solid #e4e4e4;
-  border-radius: 8px;
-  text-align: center;
-}
-.product-card img {
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.45); /* semi-transparent dark overlay */
   width: 100%;
-  height: auto;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* horizontally center text */
+  align-items: center; /* vertically center text */
+  text-align: center;
+  color: white;
+  padding: 0 20px;
 }
-.product-card h3 {
-  margin-top: 15px;
+
+.hero-text h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
-.product-card p {
-  color: #555;
+
+.hero-text p {
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
+.hero-text {
+  animation: fadeInUp 1.5s ease;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.btn-hero {
+  font-size: 1.1rem;
+  padding: 12px 28px;
+  border-radius: 8px;
+}
+
+
+
 
 /* Features */
 .features-section {
@@ -104,7 +112,9 @@ body, html, .App {
   background-color: #f1f1f1;
   padding: 20px;
   border-radius: 8px;
+  font-size: 1.2rem;
 }
+
 /*login signup*/
 .signup-login-section {
   background-color: #f8fafc;
@@ -113,7 +123,7 @@ body, html, .App {
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -121,6 +131,7 @@ body, html, .App {
 .section-subtitle {
   color: #666;
   margin-bottom: 40px;
+  font-size: 1.5rem;
 }
 
 .card-container {
@@ -132,21 +143,31 @@ body, html, .App {
 
 .card {
   background-color: #fff;
+  height: 400px;
   border-radius: 12px;
-  padding: 30px 40px;
-  width: 320px;
+  padding: 50px 30px;
+  width: 400px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: left;
+  justify-content: center;  
+  align-items: center;     
+  font-size: 1.2rem; 
+  /* text-align: center;  */
 }
 
 .card h3 {
+  margin-top: 15px;
   margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .card p {
   color: #555;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   margin-bottom: 20px;
+  text-align: center;
+  padding-bottom: 10px;
 }
 
 .card form {
@@ -158,6 +179,8 @@ body, html, .App {
   font-size: 0.85rem;
   color: #333;
   margin-bottom: 5px;
+  font-size: 1.1rem;
+  padding-bottom: 10px;
 }
 
 .card input {
@@ -180,6 +203,10 @@ body, html, .App {
 .btn-success:hover {
   background-color: #218838;
 }
+.btn-login{
+  margin-top: 20px;
+  font-size: 17px;
+}
 
 /* Testimonials */
 .testimonials-section {
@@ -196,6 +223,7 @@ body, html, .App {
   padding: 20px;
   border-radius: 8px;
   text-align: center;
+  font-size: 1.2rem;
 }
 
 /* Footer */
@@ -215,6 +243,11 @@ body, html, .App {
 }
 .socials a {
   margin-left: 10px;
+  padding: 5px;
+  font-size: 1rem;
   color: white;
   text-decoration: none;
+}
+html {
+  scroll-behavior: smooth;
 }

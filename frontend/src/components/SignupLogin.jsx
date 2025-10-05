@@ -18,7 +18,7 @@ function SignupLogin() {
               <input type="text" placeholder="Enter your username" />
               <label>Password</label>
               <input type="password" placeholder="Enter your password" />
-              <button type="submit" className="btn btn-primary">Sign In</button>
+              <button type="submit" className="btn btn-primary btn-login">Sign In</button>
             </form>
           </div>
 
@@ -31,7 +31,7 @@ function SignupLogin() {
               <input type="text" placeholder="Enter your username" />
               <label>Password</label>
               <input type="password" placeholder="Create a password" />
-              <button type="submit" className="btn btn-success">Create Account</button>
+              <button type="submit" className="btn btn-success btn-login">Create Account</button>
             </form>
           </div>
         </div>

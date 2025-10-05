@@ -14,8 +14,8 @@ function App() {
       <Header />
       <Hero />
       {/* <ProductGrid /> */}
-      <SignupLogin />
       <Features />
+      <SignupLogin />
       <Testimonials />
       <Footer />
     </div>
