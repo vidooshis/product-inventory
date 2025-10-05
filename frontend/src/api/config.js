@@ -1,11 +1,15 @@
 import axios from 'axios';
 
+// Use environment variable for base URL
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://product-inventory-xm1e.onrender.com';
+
+console.log('API Base URL:', API_BASE_URL); // Add this for debugging
+
 const API = axios.create({
-  baseURL: 'http://localhost:4000',
+  baseURL: API_BASE_URL,
   timeout: 10000,
 });
 
-// Add a request interceptor to include the token
 API.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
