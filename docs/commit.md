@@ -19,12 +19,33 @@
 ![Git Log](../screenshots/git_commit_3.png)
 - commit after whole landing page was done with all the styling complete.
 
+### connection of backend and frontend on local machine
+![Git Log](../screenshots/git_commit_6.png)
+
+
 ### backend and frontend conneted- fully working website
 ![Git Log](../screenshots/git_commit_4.png)
 - commit after connecting both of them and checking if they are working,
 
 ### Vercel backend issue, so commit again
 ![Git Log](../screenshots/git_commit_5.png)
+
+### Axios issue while deploying
+![Git Log](../screenshots/git_commit_7.png)
+
+### backend connection issue
+![Git Log](../screenshots/git_commit_8.png)
+
+### CORS issue while deployment
+![Git Log](../screenshots/git_commit_9.png)
+
+### commit for deloying backend on render
+![Git Log](../screenshots/git_commit_10.png)
+
+### commit for replacement of axios in file issues and background image commit
+![Git Log](../screenshots/git_commit_11.png)
+
+
 ### API endpoints
 
 **Description:**
