@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import heroBackground from "../assets/illuminated-light_1048944-11070769.jpg";
 
 function Hero() {
   const handleScroll = () => {
@@ -10,7 +11,10 @@ function Hero() {
     <section
       className="hero"
       style={{
-        backgroundImage: "/illuminated-light_1048944-11070769.jpg",
+        backgroundImage: `url(${heroBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
       }}
     >
       <div className="hero-overlay">
