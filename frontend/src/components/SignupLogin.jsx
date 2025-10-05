@@ -11,26 +11,30 @@ function SignupLogin({ onLogin }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    if (!loginUsername || !loginPassword) {
-      setMessage("Please enter both username and password");
-      return;
-    }
+  e.preventDefault();
+  if (!loginUsername || !loginPassword) {
+    setMessage("Please enter both username and password");
+    return;
+  }
 
-    setIsLoading(true);
-    setMessage("");
+  setIsLoading(true);
+  setMessage("");
 
-    try {
-      await onLogin(loginUsername, loginPassword);
-      // Clear form after successful login
-      setLoginUsername("");
-      setLoginPassword("");
-    } catch (error) {
-      // Error is handled in parent component
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  try {
+    await onLogin(loginUsername, loginPassword);
+    // Clear form after successful login
+    setLoginUsername("");
+    setLoginPassword("");
+  } catch (error) {
+    // ✅ Show backend error OR default fallback
+    setMessage(
+      error.response?.data?.message || "Invalid username or password"
+    );
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   const handleSignup = async (e) => {
     e.preventDefault();

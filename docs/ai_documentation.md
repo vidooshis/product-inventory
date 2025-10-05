@@ -36,5 +36,11 @@
 
   - I had some internal issue which was hindering with tailwind. even though i had manually created the files all together, i still couldn't resolve this erorr. Even at the end, CLI couldn't resolve it so i had to remove taiwind files altogether and then i did it 'old way' using css creating classes for every component and adding it to external css file.
 
-
+## CORS problem with backend
+![AI doc](../screenshots/c1.png)
+![AI doc](../screenshots/c2.png)
+![AI doc](../screenshots/c3.png)
+![AI doc](../screenshots/c4.png)
+![AI doc](../screenshots/c5.png)
+- When i was trying to connect the backend and frontend, i had some issue with naming port in different files and couldn't understand it at that time. so CLI helped me put it together and made it easy to identify my mistake without spending so much time
 

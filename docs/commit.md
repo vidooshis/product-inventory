@@ -19,6 +19,9 @@
 ![Git Log](../screenshots/git_commit_3.png)
 - commit after whole landing page was done with all the styling complete.
 
+### backend and frontend conneted- fully working website
+![Git Log](../screenshots/git_commit_4.png)
+- commit after connecting both of them and checking if they are working correctly
 ### API endpoints
 
 **Description:**
